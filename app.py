@@ -1,17 +1,19 @@
 import streamlit as st
 import pandas as pd
 
-# Load data
-upsets_df = pd.read_csv("greatest_upsets.csv")
-no_1_days_df = pd.read_csv("days_at_no_1_corrected.csv")
+
+
+# Load CSV files
+upsets_df = pd.read_csv("./greatest_upsets.csv", encoding="utf-8")
+no_1_days_df = pd.read_csv("./days_at_no_1_corrected.csv", encoding="utf-8")
 
 # Title of the app
 st.title("Interactive ELO Analysis")
 
 # Display the Plotly HTML graph
 st.subheader("ELO Rating Graph")
-# Read the HTML file with utf-8 encoding
-with open("ELO_Rating_Plot.html", "r", encoding="utf-8") as file:
+# Read the HTML file
+with open("./ELO_Rating_Plot.html", "r", encoding="utf-8") as file:
     html_content = file.read()
 st.components.v1.html(html_content, height=600)  # Embed the HTML graph
 
